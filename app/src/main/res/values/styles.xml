@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>-->
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="config_color_divider">@color/divider</item>
+        <!--标题栏主题样式-->
+        <item name="CustomTitleBarStyle">@style/QDTopBar</item>
+        <!--设置标题栏高度-->
+        <item name="titlebar_height">56dp</item>
+    </style>
+
+    <style name="QDTopBar" parent="CustomTitleBar.TopBar">
+        <item name="titlebar_bg_color">@color/colorAccent</item>
+        <item name="titlebar_title_text_size">16sp</item>
+        <item name="titlebar_title_color">@color/color_white</item>
+        <item name="titlebar_subtitle_color">@color/config_color_white</item>
+        <item name="titlebar_text_btn_color_state_list">@color/s_topbar_btn_color</item>
+        <item name="titlebar_image_btn_height">48dp</item>
+    </style>
+
+    <!--<color name="color_white">#ffffff</color>-->
+    <!--<color name="s_topbar_btn_color">#ffffff</color>-->
+</resources>

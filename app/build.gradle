@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+android {
+    signingConfigs {
+        release {
+            keyAlias 'zxnkeystore'
+            keyPassword 'zxn888'
+            storeFile file('../zxntestkeystore.jks')
+            storePassword 'zxn888'
+        }
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.zxn.mytest"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        multiDexEnabled true
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            //说明so的路径为该libs路径，关联所有地图SDK的so文件
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    //要添加此依赖否则事件无法响应
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.xhb:commontitlebar:2.0.0'
+    implementation 'com.android.support:design:27.1.1'
+    implementation files('libs/BaiduLBS_Android.jar')
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.facebook.fresco:fresco:1.9.0'
+    //    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'org.xutils:xutils:3.5.0'
+}
+
+
+MobSDK {
+    appKey "2574d1bb7f6d6"
+    appSecret "8a95e97ca9971f6fb0cb2c15825bce52"
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            SinaWeibo {
+                appKey "2065855237"
+                appSecret "d4cfd9d575a46e09f2e4683eb1152a38"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient true
+            }
+            Wechat {
+                appId "wx4868b35061f87885"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+            }
+            QQ {
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+            }
+            WechatMoments {
+                appKey "1412473428822331"
+                appSecret "a42f4f3f867dc947b9ed6020c2e93558"
+                callbackUri "https://mob.com"//1069009010021
+            }
+        }
+    }
+}
+
+

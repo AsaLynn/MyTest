@@ -1,0 +1,32 @@
+<html>
+<title>web and js</title>
+<style type="text/css">
+.yangshi{
+color:#F00;/* 设置颜色为红色 */
+background-color:#0edc1c; /*此处更换为所需的颜色代码*/
+height:100px;
+}
+
+</style>
+<body>
+<h1>web and js each other</h1>
+<br/>
+<h2>this page is in the webview!</h2>
+<br/>
+<span>要输入的文字</span>
+<br/>
+<div class="yangshi">click here will call android method!</div>
+<script>
+        function sayHello(){
+             alert("Hello,this is a function in js,and call by android!")
+        }
+         //var aTag = document.getElementsByTagName('a')[0];
+         var divTag = document.getElementsByTagName('div')[0];
+         divTag.addEventListener('click', function(){
+             //调用android本地方法
+             control.toastMessage("Hello,js call Android method!");
+             return false;
+         }, false);
+</script>
+</body>
+</html>
